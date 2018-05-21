@@ -1,0 +1,18 @@
+name: savion
+user:
+  address: ChongQing
+  detailAddress:
+    country: China
+    provence: ZheJiang
+    city: HangZhou
+server:
+  port: 8989
+  servlet:
+    context-path: /demo
+    session:
+      timeout: 1000000s
+  ssl:
+    key-store: 111.keystore
+    key-alias: savion
+    key-password: sw820820
+    key-store-type: jks
