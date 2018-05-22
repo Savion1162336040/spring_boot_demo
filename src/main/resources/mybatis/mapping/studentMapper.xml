@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.savion.spring_boot_demo.mapper.StudentMapper">
+
+    <resultMap id="result_map" type="com.savion.spring_boot_demo.bean.Student">
+        <!--id标签具有唯一性，不是对应数据库中的主键,column对应javabean属性名,property对应数据库列名-->
+        <id column="id" property="id"/>
+        <!--result对应普通属性-->
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="pw" property="pw"/>
+        <result column="nick" property="nick"/>
+        <result column="classes" property="classes"/>
+        <result column="sex" property="sex"/>
+    </resultMap>
+
+    <sql id="params_map">
+        (id,name,age,classes,pw,sex,nick)
+    </sql>
+
+    <select id="getStudentById" resultType="com.savion.spring_boot_demo.bean.Student">
+        select * from student where id = #{id}
+    </select>
+    <insert id="saveStudent" parameterType="com.savion.spring_boot_demo.bean.Student">
+
+        insert into student
+        <include refid="params_map"/>
+        values (#{id},#{name},#{age},#{classes},#{pw},#{sex},#{nick})
+    </insert>
+</mapper>

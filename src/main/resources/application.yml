@@ -16,3 +16,21 @@ server:
     key-alias: savion
     key-password: sw820820
     key-store-type: jks
+spring:
+  profiles:
+  active: dev
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/my_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    # url: jdbc:mysql://192.168.13.233:3306/cqybgsl?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    #username: cqybgsl
+    #password: cqybgsl
+    driver-class-name: com.mysql.jdbc.Driver
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: sw820820
+mybatis:
+  type-aliases-package: com.savion.spring_boot_demo.bean
+  mapper-locations: classpath:mybatis/mapping/*.xml
+  config-location: classpath:mybatis/ibatis_config.xml
+
